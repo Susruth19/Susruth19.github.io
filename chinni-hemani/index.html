@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Chinni Hemani</title>
-<meta name="description" content="Chinni Hemani, Azure DevOps Engineer with 5 years of experience at Infosys.">
+<meta name="description" content="Chinni Hemani, Azure DevOps Engineer with 5 years at Infosys: Azure DevOps, AKS, Azure, Linux and networking.">
 <meta name="theme-color" content="#123A31">
 <meta property="og:title" content="Chinni Hemani">
-<meta property="og:description" content="Azure DevOps Engineer · 5 years at Infosys">
+<meta property="og:description" content="Azure DevOps Engineer · AKS · Azure · 5 years at Infosys">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23123A31'/%3E%3Ctext x='32' y='41' font-family='Arial' font-size='24' font-weight='700' fill='%23F4B740' text-anchor='middle'%3ECH%3C/text%3E%3C/svg%3E" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -201,6 +201,9 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; le
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chips span { font-size: 13px; padding: 3px 10px; border-radius: 7px; background: var(--paper); border: 1px solid var(--line); }
 
+.group-label { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--amber-deep); margin: 0 0 14px; }
+.group-label.next { margin-top: 34px; }
+
 /* Contact */
 .contact { background: var(--pine); color: var(--pine-ink); border-radius: 22px; padding: clamp(28px, 5vw, 48px); display: flex; justify-content: space-between; align-items: center; gap: 28px; flex-wrap: wrap; position: relative; overflow: hidden; }
 .contact::after { content: ""; position: absolute; width: 260px; height: 260px; right: -80px; bottom: -120px; border-radius: 50%; border: 40px solid rgba(244, 183, 64, 0.12); }
@@ -247,7 +250,7 @@ footer { margin-top: 48px; font-size: 13.5px; color: var(--muted); display: flex
     <nav aria-label="Sections">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
-      <a href="#skills">Azure DevOps skills</a>
+      <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
 
@@ -261,7 +264,7 @@ footer { margin-top: 48px; font-size: 13.5px; color: var(--muted); display: flex
 
     <div>
       <div class="side-label">Works with</div>
-      <div class="tags"><span>Azure Pipelines</span><span>Azure Repos</span><span>Azure Boards</span><span>Azure Artifacts</span><span>Test Plans</span><span>YAML</span></div>
+      <div class="tags"><span>Azure DevOps</span><span>Azure Pipelines</span><span>AKS</span><span>Kubernetes</span><span>Azure</span><span>Linux</span><span>Networking</span><span>Helm</span><span>ACR</span></div>
     </div>
 
     <div class="side-foot">© <span class="yr">2026</span> Chinni Hemani</div>
@@ -272,7 +275,7 @@ footer { margin-top: 48px; font-size: 13.5px; color: var(--muted); display: flex
       <section class="intro" id="about">
         <div class="hello">// hello, I'm Chinni</div>
         <h2>I keep code moving from <em>commit to production</em> with Azure DevOps.</h2>
-        <p>I'm an <strong>Azure DevOps Engineer</strong> with <strong>5 years at Infosys</strong>. I build CI/CD pipelines in <strong>Azure Pipelines</strong>, manage code in <strong>Azure Repos</strong>, plan work in <strong>Azure Boards</strong> and publish packages with <strong>Azure Artifacts</strong>, so teams can release reliably and often.</p>
+        <p>I'm an <strong>Azure DevOps Engineer</strong> with <strong>5 years at Infosys</strong>. I build CI/CD pipelines in <strong>Azure Pipelines</strong>, deploy containerised applications to <strong>Azure Kubernetes Service (AKS)</strong>, and look after the <strong>Linux</strong> servers, <strong>networking</strong> and core <strong>Azure</strong> services they run on, so teams can release reliably and often.</p>
 
         <div class="run" aria-label="Illustration of an Azure Pipelines run">
           <div class="run-head">
@@ -283,16 +286,16 @@ footer { margin-top: 48px; font-size: 13.5px; color: var(--muted); display: flex
             <div class="stage done"><div class="dot"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg><span class="spin"></span></div><b>Commit</b><small>Azure Repos<br>PR + policies</small></div>
             <div class="stage done"><div class="dot"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg><span class="spin"></span></div><b>Build</b><small>YAML pipeline<br>agents</small></div>
             <div class="stage done"><div class="dot"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg><span class="spin"></span></div><b>Test</b><small>Test Plans<br>results</small></div>
-            <div class="stage done"><div class="dot"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg><span class="spin"></span></div><b>Package</b><small>Azure Artifacts<br>feeds</small></div>
-            <div class="stage done"><div class="dot"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg><span class="spin"></span></div><b>Release</b><small>Approvals<br>+ gates</small></div>
+            <div class="stage done"><div class="dot"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg><span class="spin"></span></div><b>Package</b><small>Docker image<br>to ACR</small></div>
+            <div class="stage done"><div class="dot"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg><span class="spin"></span></div><b>Deploy</b><small>AKS via Helm<br>approvals + gates</small></div>
           </div>
-          <div class="run-foot"><span>trigger: push to main</span><span>environments: dev → test → prod</span><span>approvals: required</span></div>
+          <div class="run-foot"><span>trigger: push to main</span><span>target: AKS · dev → test → prod</span><span>approvals: required</span></div>
         </div>
 
         <div class="numbers">
           <div class="num"><b>5<sup>yrs</sup></b><span>Azure DevOps experience</span></div>
           <div class="num"><b>Infosys</b><span>Entire career so far</span></div>
-          <div class="num"><b>5</b><span>Azure DevOps services used daily</span></div>
+          <div class="num"><b>AKS</b><span>Kubernetes on Azure</span></div>
         </div>
       </section>
 
@@ -320,18 +323,22 @@ footer { margin-top: 48px; font-size: 13.5px; color: var(--muted); display: flex
 
           <ul>
             <li><span>Design, build and maintain <strong>CI/CD pipelines in Azure Pipelines</strong>, using multi-stage <strong>YAML</strong> and classic release pipelines to automate builds, tests and deployments.</span></li>
+            <li><span>Containerise applications with <strong>Docker</strong>, push images to <strong>Azure Container Registry (ACR)</strong> and deploy them to <strong>Azure Kubernetes Service (AKS)</strong> from pipelines using <strong>kubectl and Helm</strong>.</span></li>
+            <li><span>Support day-to-day <strong>AKS operations</strong>: namespaces, deployments, services, ConfigMaps and secrets, scaling, node pool health and troubleshooting failing pods.</span></li>
             <li><span>Manage source control in <strong>Azure Repos</strong>, setting up branching strategies, <strong>branch policies</strong> and pull-request reviews to keep the main branch stable.</span></li>
             <li><span>Configure <strong>environments, approvals and release gates</strong> so changes move safely from development through testing to production.</span></li>
-            <li><span>Maintain <strong>service connections and variable groups</strong> and keep pipeline settings secure and consistent across environments.</span></li>
-            <li><span>Set up and support <strong>Microsoft-hosted and self-hosted build agents</strong> and agent pools.</span></li>
-            <li><span>Publish and version packages with <strong>Azure Artifacts</strong>, and track work items, sprints and backlogs in <strong>Azure Boards</strong>.</span></li>
-            <li><span>Troubleshoot failed builds and releases, working with development and QA teams to keep delivery on schedule.</span></li>
+            <li><span>Provision and manage core <strong>Azure services</strong>, including Virtual Machines, Storage Accounts, <strong>Key Vault</strong>, App Service and Resource Groups, using the Azure portal and <strong>Azure CLI</strong>.</span></li>
+            <li><span>Configure <strong>Azure networking</strong> for applications: <strong>VNets, subnets, NSGs</strong>, load balancers and DNS, and troubleshoot connectivity between services.</span></li>
+            <li><span>Administer <strong>Linux</strong> servers and self-hosted build agents: <strong>shell scripting</strong>, package updates, users and permissions, services and log analysis.</span></li>
+            <li><span>Keep pipelines secure with <strong>service connections, variable groups</strong> and secrets stored in Key Vault.</span></li>
+            <li><span>Monitor applications and infrastructure with <strong>Azure Monitor</strong> and Log Analytics, and troubleshoot failed builds and deployments with development and QA teams.</span></li>
           </ul>
         </article>
       </section>
 
       <section id="skills">
-        <div class="head"><span class="idx">02</span><h2>Azure DevOps skills</h2></div>
+        <div class="head"><span class="idx">02</span><h2>Skills</h2></div>
+        <div class="group-label">Azure DevOps</div>
         <div class="svc">
           <div class="svc-item">
             <div class="svc-top"><div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M4 12h4l2-4 4 8 2-4h4"/></svg></div><h3>Azure Pipelines</h3></div>
@@ -364,13 +371,37 @@ footer { margin-top: 48px; font-size: 13.5px; color: var(--muted); display: flex
             <div class="chips"><span>Agent pools</span><span>Self-hosted agents</span><span>Service connections</span><span>Variable groups</span><span>Permissions</span></div>
           </div>
         </div>
+
+        <div class="group-label next">Cloud &amp; infrastructure</div>
+        <div class="svc">
+          <div class="svc-item">
+            <div class="svc-top"><div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 2l8.5 4.9v9.8L12 22l-8.5-5.3V6.9z"/><circle cx="12" cy="12" r="3"/><path d="M12 5v4M12 15v4M6 8.5l3.4 2M14.6 13.5L18 15.5M6 15.5l3.4-2M14.6 10.5L18 8.5"/></svg></div><h3>Azure Kubernetes Service</h3></div>
+            <p>Running and deploying containerised apps.</p>
+            <div class="chips"><span>AKS</span><span>kubectl</span><span>Helm</span><span>Deployments &amp; services</span><span>Namespaces</span><span>Scaling</span><span>Docker</span><span>ACR</span></div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-top"><div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M7 18a4 4 0 0 1-.6-7.95A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9H7z"/></svg></div><h3>Azure services</h3></div>
+            <p>Core building blocks on Azure.</p>
+            <div class="chips"><span>Virtual Machines</span><span>Storage Accounts</span><span>Key Vault</span><span>App Service</span><span>Resource Groups</span><span>Azure Monitor</span><span>Azure CLI</span></div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-top"><div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="5" rx="1"/><rect x="2" y="17" width="6" height="5" rx="1"/><rect x="16" y="17" width="6" height="5" rx="1"/><path d="M12 7v5M5 17v-3h14v3"/></svg></div><h3>Networking</h3></div>
+            <p>Connecting and securing applications.</p>
+            <div class="chips"><span>VNets &amp; subnets</span><span>NSGs</span><span>Load Balancer</span><span>DNS</span><span>TCP/IP</span><span>Connectivity troubleshooting</span></div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-top"><div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M12 15h5"/></svg></div><h3>Linux</h3></div>
+            <p>Day-to-day server administration.</p>
+            <div class="chips"><span>Shell scripting</span><span>Users &amp; permissions</span><span>Package management</span><span>systemd services</span><span>Log analysis</span><span>SSH</span></div>
+          </div>
+        </div>
       </section>
 
       <section id="contact">
         <div class="contact">
           <div>
             <h2>Let's work together</h2>
-            <p>Open to Azure DevOps roles and projects. Call or message anytime.</p>
+            <p>Open to Azure DevOps, AKS and cloud roles and projects. Call or message anytime.</p>
           </div>
           <div class="phone">
             <a href="tel:+918919071852">+91 89190 71852</a>
