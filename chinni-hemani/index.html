@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chinni Hemani</title>
+<meta name="description" content="Chinni Hemani, Azure DevOps Engineer with 5 years of experience at Infosys.">
+<meta name="theme-color" content="#0A0A1A">
+<meta property="og:title" content="Chinni Hemani">
+<meta property="og:description" content="Azure DevOps Engineer · 5 years at Infosys">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23120E2B'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='26' font-weight='700' fill='%23A99CFF' text-anchor='middle'%3ECH%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: animated cluster-network canvas behind everything; frosted glass panels float above it.
+   Sticky glass nav, hero with orbit graphic, glass timeline for experience, skill tiles, contact panel. */
+:root {
+  --bg: #070B16;
+  --bg-2: #0B1224;
+  --ink: #EAF1FB;
+  --muted: #9AABC4;
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-strong: rgba(255, 255, 255, 0.10);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --glass-hi: rgba(255, 255, 255, 0.22);
+  --accent: #8B7BFF;
+  --accent-2: #22C7C9;
+  --accent-3: #4C9BFF;
+  --ok: #34D399;
+  --shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
+  --orb-a: rgba(124, 108, 255, 0.50);
+  --orb-b: rgba(45, 212, 191, 0.40);
+  --orb-c: rgba(124, 131, 255, 0.40);
+  --net: 170, 160, 255;
+  --font-display: "Sora", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #EEF3FB; --bg-2: #E4ECF8; --ink: #0E1A2E; --muted: #4F6380;
+    --glass: rgba(255, 255, 255, 0.55); --glass-strong: rgba(255, 255, 255, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.85); --glass-hi: rgba(255, 255, 255, 0.95);
+    --accent: #5B4BDB; --accent-2: #0E9696; --accent-3: #1F6FE5; --ok: #12925F;
+    --shadow: 0 20px 50px -24px rgba(30, 60, 110, 0.35);
+    --orb-a: rgba(139, 123, 255, 0.40); --orb-b: rgba(45, 212, 191, 0.35); --orb-c: rgba(124, 131, 255, 0.30);
+    --net: 80, 60, 180;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #EEF3FB; --bg-2: #E4ECF8; --ink: #0E1A2E; --muted: #4F6380;
+  --glass: rgba(255, 255, 255, 0.55); --glass-strong: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.85); --glass-hi: rgba(255, 255, 255, 0.95);
+  --accent: #5B4BDB; --accent-2: #0E9696; --accent-3: #1F6FE5; --ok: #12925F;
+  --shadow: 0 20px 50px -24px rgba(30, 60, 110, 0.35);
+  --orb-a: rgba(139, 123, 255, 0.40); --orb-b: rgba(45, 212, 191, 0.35); --orb-c: rgba(124, 131, 255, 0.30);
+  --net: 80, 60, 180;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(1200px 800px at 80% -10%, var(--bg-2), var(--bg) 60%) fixed, var(--bg);
+  color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.65;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+img { max-width: 100%; }
+a { color: var(--accent); text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
+::selection { background: color-mix(in srgb, var(--accent) 40%, transparent); }
+
+/* ---------- Background graphics ---------- */
+.bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.orb { position: absolute; border-radius: 50%; filter: blur(80px); will-change: transform; }
+.orb.a { width: 46vw; height: 46vw; left: -10vw; top: -8vw; background: var(--orb-a); animation: drift1 26s var(--ease) infinite alternate; }
+.orb.b { width: 38vw; height: 38vw; right: -8vw; top: 30vh; background: var(--orb-b); animation: drift2 32s var(--ease) infinite alternate; }
+.orb.c { width: 34vw; height: 34vw; left: 30vw; bottom: -14vw; background: var(--orb-c); animation: drift3 28s var(--ease) infinite alternate; }
+@keyframes drift1 { to { transform: translate(12vw, 10vh) scale(1.1); } }
+@keyframes drift2 { to { transform: translate(-14vw, -8vh) scale(0.9); } }
+@keyframes drift3 { to { transform: translate(-8vw, -12vh) scale(1.15); } }
+#net { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.9; }
+.grain {
+  position: absolute; inset: 0; opacity: 0.05; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Glass primitive ---------- */
+.glass {
+  position: relative;
+  background: linear-gradient(145deg, var(--glass-strong), var(--glass));
+  border: 1px solid var(--glass-border);
+  border-radius: 22px;
+  box-shadow: var(--shadow), inset 0 1px 0 var(--glass-hi);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+  isolation: isolate;
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { background: color-mix(in srgb, var(--bg-2) 92%, transparent); }
+}
+/* cursor spotlight */
+.glow::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, -20%), color-mix(in srgb, var(--accent) 22%, transparent), transparent 60%);
+  opacity: 0; transition: opacity .4s var(--ease);
+}
+.glow:hover::after { opacity: 1; }
+
+.wrap {
+  max-width: 1160px; margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+
+/* ---------- Nav ---------- */
+.nav-shell { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; padding-top: 14px; }
+.nav {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 10px 12px 10px 18px; border-radius: 999px;
+}
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 600; color: var(--ink); }
+.brand i {
+  width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; font-style: normal; font-size: 12px; font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff;
+}
+.links { display: flex; gap: 4px; }
+.links a {
+  color: var(--muted); font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 999px;
+  transition: color .25s, background .25s;
+}
+.links a:hover, .links a.active { color: var(--ink); background: var(--glass-strong); }
+.nav-cta {
+  font-size: 14px; font-weight: 600; color: #fff; padding: 9px 18px; border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-3));
+  box-shadow: 0 8px 24px -8px color-mix(in srgb, var(--accent) 70%, transparent);
+  transition: transform .25s var(--ease), box-shadow .25s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 12px 30px -8px color-mix(in srgb, var(--accent) 80%, transparent); }
+
+/* ---------- Hero ---------- */
+.hero { padding-block: 72px 56px; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+.chip {
+  display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 10px; border-radius: 999px;
+  font-size: 13px; color: var(--muted); margin-bottom: 26px;
+}
+.pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); position: relative; }
+.pulse::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--ok); opacity: .6; animation: ping 2s var(--ease) infinite; }
+@keyframes ping { to { transform: scale(2.2); opacity: 0; } }
+.hero h1 { font-size: clamp(38px, 6.2vw, 68px); line-height: 1.04; font-weight: 700; }
+.grad {
+  background: linear-gradient(100deg, var(--accent) 0%, var(--accent-2) 50%, var(--accent-3) 100%);
+  background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: sheen 8s linear infinite;
+}
+@keyframes sheen { to { background-position: 200% center; } }
+.rotator { margin: 18px 0 0; font-size: clamp(18px, 2.2vw, 22px); color: var(--muted); font-weight: 500; min-height: 1.6em; }
+.rotator b { color: var(--ink); font-weight: 600; display: inline-block; transition: opacity .35s var(--ease), transform .35s var(--ease); }
+.rotator b.out { opacity: 0; transform: translateY(8px); }
+.hero p.lead { margin: 22px 0 0; color: var(--muted); font-size: 17px; max-width: 56ch; }
+.hero p.lead strong { color: var(--ink); font-weight: 600; }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; padding: 13px 22px; border-radius: 14px;
+  transition: transform .25s var(--ease), box-shadow .25s, background .25s; cursor: pointer; border: 0; font-family: inherit;
+}
+.btn.primary { color: #fff; background: linear-gradient(135deg, var(--accent), var(--accent-3)); box-shadow: 0 12px 30px -10px color-mix(in srgb, var(--accent) 80%, transparent); }
+.btn.ghost { color: var(--ink); }
+.btn:hover { transform: translateY(-2px); }
+.btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+/* Orbit graphic */
+.orbit-card { aspect-ratio: 1 / 1; max-width: 460px; width: 100%; justify-self: center; display: grid; place-items: center; overflow: hidden; }
+.orbit { position: relative; width: 76%; aspect-ratio: 1 / 1; max-width: 100%; }
+.ring { position: absolute; border-radius: 50%; border: 1px dashed color-mix(in srgb, var(--ink) 22%, transparent); }
+.ring.r1 { inset: 0; animation: spin 60s linear infinite; }
+.ring.r2 { inset: 19%; animation: spin 40s linear infinite reverse; }
+.ring.r3 { inset: 37%; border-style: solid; border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+@keyframes spin { to { transform: rotate(360deg); } }
+.core {
+  position: absolute; inset: 39%; border-radius: 50%; display: grid; place-items: center; text-align: center;
+  background: radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--accent) 80%, white), var(--accent-3));
+  box-shadow: 0 0 60px color-mix(in srgb, var(--accent) 60%, transparent), inset 0 2px 8px rgba(255,255,255,.4);
+  color: #fff; font-family: var(--font-display); font-weight: 700; font-size: clamp(14px, 2.2vw, 20px); line-height: 1.1;
+}
+.core small { display: block; font-family: var(--font-body); font-weight: 500; font-size: 10px; opacity: .85; letter-spacing: .08em; }
+.node {
+  position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%);
+  padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap;
+  background: var(--glass-strong); border: 1px solid var(--glass-border); color: var(--ink);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  box-shadow: 0 6px 18px -8px rgba(0,0,0,.5);
+}
+/* each slot sits at angle --a; nodes counter-rotate so labels stay upright */
+.slot { position: absolute; inset: 0; transform: rotate(var(--a)); }
+.ring.r1 .node { animation: up1 60s linear infinite; }
+.ring.r2 .node { animation: up2 40s linear infinite; }
+@keyframes up1 { from { transform: translate(-50%, -50%) rotate(calc(-1 * var(--a))); } to { transform: translate(-50%, -50%) rotate(calc(-1 * var(--a) - 360deg)); } }
+@keyframes up2 { from { transform: translate(-50%, -50%) rotate(calc(-1 * var(--a))); } to { transform: translate(-50%, -50%) rotate(calc(360deg - var(--a))); } }
+
+/* ---------- Stats ---------- */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.stat { padding: 22px 24px; }
+.stat b { display: block; font-family: var(--font-display); font-size: 32px; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.stat > span { color: var(--muted); font-size: 14px; }
+
+/* ---------- Sections ---------- */
+section.block { padding-block: 96px 0; }
+.eyebrow { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 12px; }
+.sec-title { font-size: clamp(30px, 4.2vw, 44px); font-weight: 700; margin-bottom: 14px; }
+.sec-sub { color: var(--muted); margin: 0 0 40px; max-width: 60ch; }
+
+/* Experience timeline */
+.timeline { position: relative; display: grid; gap: 22px; padding-left: 38px; }
+.timeline::before {
+  content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; border-radius: 2px;
+  background: linear-gradient(var(--accent), var(--accent-2) 50%, color-mix(in srgb, var(--accent-3) 30%, transparent));
+}
+.job { padding: 28px 30px; transition: transform .35s var(--ease), border-color .35s; }
+.job:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 45%, var(--glass-border)); }
+.job::before {
+  content: ""; position: absolute; left: -34px; top: 34px; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--bg); border: 3px solid var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+.job.now::before { background: var(--accent); box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 25%, transparent), 0 0 24px var(--accent); }
+.job-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+.job h3 { font-size: 21px; font-weight: 600; line-height: 1.3; }
+.company { margin-top: 4px; font-weight: 600; color: var(--accent); }
+.company span { color: var(--muted); font-weight: 400; }
+.when { text-align: right; display: grid; gap: 6px; justify-items: end; }
+.when .dates { font-family: var(--font-mono); font-size: 13.5px; color: var(--ink); font-variant-numeric: tabular-nums; }
+.tag { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--glass-strong); border: 1px solid var(--glass-border); color: var(--muted); }
+.tag.live { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 45%, transparent); background: color-mix(in srgb, var(--ok) 12%, transparent); }
+.job ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.job li { position: relative; padding-left: 22px; color: color-mix(in srgb, var(--ink) 86%, var(--muted)); }
+.job li::before {
+  content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 2px; transform: rotate(45deg);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+}
+.job li strong { color: var(--ink); font-weight: 600; }
+.stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+.stack span {
+  font-family: var(--font-mono); font-size: 12px; padding: 4px 10px; border-radius: 8px;
+  background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--ink);
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.skill { padding: 24px; transition: transform .35s var(--ease); }
+.skill:hover { transform: translateY(-4px); }
+.skill .ico {
+  width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; margin-bottom: 16px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 80%, transparent), color-mix(in srgb, var(--accent-2) 80%, transparent));
+  box-shadow: 0 10px 24px -10px var(--accent);
+}
+.skill .ico svg { width: 22px; height: 22px; stroke: #fff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.skill h3 { font-size: 17px; font-weight: 600; margin-bottom: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chips span { font-size: 13px; padding: 4px 10px; border-radius: 8px; background: var(--glass-strong); border: 1px solid var(--glass-border); }
+.skill.wide { grid-column: span 2; }
+
+/* Education */
+.edu { display: flex; align-items: center; gap: 22px; padding: 26px 30px; flex-wrap: wrap; }
+.edu .ico { width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; background: linear-gradient(135deg, var(--accent-3), var(--accent)); flex-shrink: 0; }
+.edu .ico svg { width: 26px; height: 26px; stroke: #fff; fill: none; stroke-width: 1.8; stroke-linejoin: round; }
+.edu div { flex: 1; min-width: 220px; }
+.edu h3 { font-size: 19px; font-weight: 600; }
+.edu p { margin: 2px 0 0; color: var(--muted); }
+.edu .dates { font-family: var(--font-mono); color: var(--muted); }
+
+/* Contact */
+.contact { padding-block: 96px 56px; }
+.contact-card { padding: clamp(28px, 5vw, 56px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; overflow: hidden; }
+.contact-card::before {
+  content: ""; position: absolute; width: 360px; height: 360px; right: -120px; top: -160px; border-radius: 50%; z-index: -1;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 40%, transparent), transparent 70%);
+}
+.contact-card h2 { font-size: clamp(30px, 4.2vw, 44px); font-weight: 700; margin-bottom: 14px; }
+.contact-card p { color: var(--muted); margin: 0; max-width: 42ch; }
+.lines { display: grid; gap: 12px; }
+.line {
+  display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 16px; min-width: 0;
+  background: var(--glass); border: 1px solid var(--glass-border); transition: border-color .25s, transform .25s var(--ease);
+}
+.line:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--glass-border)); transform: translateX(3px); }
+.line .ico { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: color-mix(in srgb, var(--accent) 18%, transparent); flex-shrink: 0; }
+.line .ico svg { width: 18px; height: 18px; stroke: var(--accent); fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.line .txt { flex: 1; min-width: 0; }
+.line small { display: block; font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.line a, .line .val { color: var(--ink); font-weight: 500; overflow-wrap: anywhere; }
+.copy {
+  font: 600 12.5px var(--font-body); color: var(--accent); background: transparent; cursor: pointer;
+  border: 1px solid var(--glass-border); border-radius: 10px; padding: 7px 12px; flex-shrink: 0; transition: background .25s;
+}
+.copy:hover { background: var(--glass-strong); }
+
+footer { padding-block: 0 40px; color: var(--muted); font-size: 13.5px; }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+/* Scroll reveal (only applied by JS to elements below the fold) */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+
+/* Progress bar */
+.progress { position: fixed; left: 0; top: 0; height: 3px; width: 100%; z-index: 60; transform-origin: 0 50%; transform: scaleX(0);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .orbit-card { max-width: 400px; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .skill.wide { grid-column: span 2; }
+  .contact-card { grid-template-columns: minmax(0, 1fr); }
+  .links { display: none; }
+}
+@media (max-width: 600px) {
+  .hero { padding-block: 48px 40px; }
+  .skills { grid-template-columns: minmax(0, 1fr); }
+  .skill.wide { grid-column: auto; }
+  .timeline { padding-left: 26px; }
+  .timeline::before { left: 5px; }
+  .job { padding: 22px 20px; }
+  .job::before { left: -27px; top: 28px; width: 12px; height: 12px; }
+  .when { text-align: left; justify-items: start; }
+  .stat b { font-size: 26px; }
+  .node { font-size: 10.5px; padding: 4px 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+.areas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+.area { padding: 18px 20px; border-radius: 16px; background: var(--glass); border: 1px solid var(--glass-border); }
+.area b { display: block; font-family: var(--font-display); font-size: 15.5px; font-weight: 600; margin-bottom: 4px; }
+.area span { color: var(--muted); font-size: 14px; }
+@media (max-width: 760px) { .areas { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<div class="bg" aria-hidden="true">
+  <div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
+  <canvas id="net"></canvas>
+  <div class="grain"></div>
+</div>
+
+<div class="nav-shell">
+  <div class="wrap">
+    <nav class="nav glass" aria-label="Main">
+      <a class="brand" href="#top"><i>CH</i>Chinni Hemani</a>
+      <div class="links">
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+      </div>
+      <a class="nav-cta" href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="chip glass"><span class="pulse"></span>Azure DevOps Engineer at Infosys</div>
+      <h1>Chinni<br><span class="grad">Hemani</span></h1>
+      <p class="rotator">5 years · <b id="rot">Azure DevOps Engineer</b></p>
+      <p class="lead">I build and run delivery workflows on <strong>Azure DevOps</strong>: <strong>Azure Pipelines</strong> for CI/CD, <strong>Azure Repos</strong> for source control, <strong>Azure Boards</strong> for planning, and <strong>Azure Artifacts</strong> for package management. Five years at <strong>Infosys</strong> delivering reliable, repeatable releases.</p>
+      <div class="cta">
+        <a class="btn primary" href="#experience">View experience
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn ghost glass" href="#contact">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="orbit-card glass glow" aria-hidden="true">
+      <div class="orbit">
+        <div class="ring r1">
+          <div class="slot" style="--a:0deg"><div class="node"><span>Pipelines</span></div></div>
+          <div class="slot" style="--a:72deg"><div class="node"><span>Repos</span></div></div>
+          <div class="slot" style="--a:144deg"><div class="node"><span>Boards</span></div></div>
+          <div class="slot" style="--a:216deg"><div class="node"><span>Artifacts</span></div></div>
+          <div class="slot" style="--a:288deg"><div class="node"><span>Test Plans</span></div></div>
+        </div>
+        <div class="ring r2">
+          <div class="slot" style="--a:30deg"><div class="node"><span>YAML</span></div></div>
+          <div class="slot" style="--a:150deg"><div class="node"><span>Agents</span></div></div>
+          <div class="slot" style="--a:270deg"><div class="node"><span>Approvals</span></div></div>
+        </div>
+        <div class="ring r3"></div>
+        <div class="core"><div>Azure<small>DEVOPS</small></div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat glass glow"><b><span data-count="5">5</span>+</b><span>Years of experience</span></div>
+      <div class="stat glass glow"><b>Infosys</b><span>Entire career</span></div>
+      <div class="stat glass glow"><b data-count="5">5</b><span>Azure DevOps services</span></div>
+      <div class="stat glass glow"><b>CI/CD</b><span>Build &amp; release automation</span></div>
+    </div>
+  </div>
+
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="eyebrow">Career</div>
+      <h2 class="sec-title">Professional Experience</h2>
+      <p class="sec-sub">Five years with Infosys, working end to end on the Azure DevOps platform.</p>
+
+      <div class="timeline">
+        <article class="job now glass glow">
+          <div class="job-head">
+            <div>
+              <h3>Azure DevOps Engineer</h3>
+              <div class="company">Infosys Limited <span>· India</span></div>
+            </div>
+            <div class="when"><span class="dates">Dec 2021 – Present</span><span class="tag live" id="dur">Current · 5 yrs</span></div>
+          </div>
+          <ul>
+            <li>Design, build and maintain <strong>CI/CD pipelines in Azure Pipelines</strong>, using multi-stage <strong>YAML</strong> and classic release pipelines to automate builds, tests and deployments.</li>
+            <li>Manage source control in <strong>Azure Repos</strong>, setting up branching strategies, <strong>branch policies</strong> and pull-request reviews to keep the main branch stable.</li>
+            <li>Configure <strong>environments, approvals and release gates</strong> so changes move safely from development through testing to production.</li>
+            <li>Maintain <strong>service connections, variable groups</strong> and secure pipeline settings for consistent deployments across environments.</li>
+            <li>Set up and support <strong>Microsoft-hosted and self-hosted build agents</strong> and agent pools.</li>
+            <li>Publish and version packages with <strong>Azure Artifacts</strong> feeds, and track work items, sprints and backlogs in <strong>Azure Boards</strong>.</li>
+            <li>Troubleshoot failed builds and releases, working with development and QA teams to keep delivery on schedule.</li>
+          </ul>
+          <div class="stack"><span>Azure Pipelines</span><span>YAML</span><span>Azure Repos</span><span>Azure Boards</span><span>Azure Artifacts</span><span>Test Plans</span><span>Release Gates</span></div>
+
+          <div class="areas">
+            <div class="area"><b>Azure Pipelines</b><span>CI/CD, multi-stage YAML, releases</span></div>
+            <div class="area"><b>Azure Repos</b><span>Git, branch policies, pull requests</span></div>
+            <div class="area"><b>Azure Boards</b><span>Work items, sprints, backlogs</span></div>
+            <div class="area"><b>Azure Artifacts</b><span>Package feeds and versioning</span></div>
+            <div class="area"><b>Azure Test Plans</b><span>Test runs linked to builds</span></div>
+            <div class="area"><b>Administration</b><span>Agents, permissions, service connections</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <div class="eyebrow">Toolbox</div>
+      <h2 class="sec-title">Azure DevOps Skills</h2>
+      <p class="sec-sub">The parts of the Azure DevOps platform I work with every day.</p>
+      <div class="skills">
+        <div class="skill glass glow">
+          <div class="ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="12" r="2.5"/><path d="M6 8.5v7M8.3 7.2l7.4 3.6"/></svg></div>
+          <h3>Azure Pipelines</h3>
+          <div class="chips"><span>YAML pipelines</span><span>Multi-stage</span><span>Classic releases</span><span>Templates</span><span>Triggers</span><span>Environments</span></div>
+        </div>
+        <div class="skill glass glow">
+          <div class="ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="9" r="2"/><path d="M6 7v10M18 11c0 4-6 3-12 6"/></svg></div>
+          <h3>Azure Repos</h3>
+          <div class="chips"><span>Git</span><span>Branching strategy</span><span>Branch policies</span><span>Pull requests</span><span>Code reviews</span></div>
+        </div>
+        <div class="skill glass glow">
+          <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16"/></svg></div>
+          <h3>Azure Boards</h3>
+          <div class="chips"><span>Work items</span><span>Sprints</span><span>Backlogs</span><span>Kanban boards</span><span>Queries</span></div>
+        </div>
+        <div class="skill glass glow">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2l8.5 4.9v9.8L12 22l-8.5-5.3V6.9z"/><path d="M3.5 6.9L12 12l8.5-5.1M12 12v10"/></svg></div>
+          <h3>Azure Artifacts</h3>
+          <div class="chips"><span>Package feeds</span><span>Versioning</span><span>Upstream sources</span></div>
+        </div>
+        <div class="skill glass glow">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"/></svg></div>
+          <h3>Azure Test Plans</h3>
+          <div class="chips"><span>Test plans</span><span>Test runs</span><span>Build-linked results</span></div>
+        </div>
+        <div class="skill glass glow">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Administration &amp; Security</h3>
+          <div class="chips"><span>Agent pools</span><span>Self-hosted agents</span><span>Service connections</span><span>Variable groups</span><span>Permissions</span><span>Approvals &amp; gates</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="contact-card glass">
+        <div>
+          <div class="eyebrow">Contact</div>
+          <h2>Let's talk Azure DevOps</h2>
+          <p>Open to conversations about Azure DevOps roles and projects.</p>
+        </div>
+        <div class="lines">
+          <div class="line">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></div>
+            <div class="txt"><small>Phone</small><a href="tel:+918919071852">+91 89190 71852</a></div>
+            <button class="copy" type="button" data-copy="+918919071852">Copy</button>
+          </div>
+          <div class="line">
+            <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
+            <div class="txt"><small>Current company</small><span class="val">Infosys Limited</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Chinni Hemani</span>
+    <span>Azure DevOps Engineer</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var now = new Date();
+  document.getElementById('yr').textContent = now.getFullYear();
+
+  /* Current role duration */
+  var months = (now.getFullYear() - 2021) * 12 + (now.getMonth() + 1 - 12) + 1;
+  if (months > 0) {
+    var y = Math.floor(months / 12), m = months % 12, out = [];
+    if (y) out.push(y + (y === 1 ? ' yr' : ' yrs'));
+    if (m) out.push(m + (m === 1 ? ' mo' : ' mos'));
+    document.getElementById('dur').textContent = 'Current · ' + out.join(' ');
+  }
+
+  /* Role rotator */
+  var roles = ['Azure DevOps Engineer', 'CI/CD Pipeline Specialist', 'Release Automation Engineer', 'Azure Boards & Repos Admin'];
+  var rot = document.getElementById('rot'), ri = 0;
+  if (!reduce) setInterval(function () {
+    rot.classList.add('out');
+    setTimeout(function () { ri = (ri + 1) % roles.length; rot.textContent = roles[ri]; rot.classList.remove('out'); }, 350);
+  }, 2800);
+
+  /* Cursor spotlight on glass cards */
+  document.querySelectorAll('.glow').forEach(function (el) {
+    el.addEventListener('pointermove', function (e) {
+      var r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  /* Scroll reveal: only for elements below the first screen, so the page is complete at rest */
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.job, .skill, .edu, .contact-card, .sec-title, .sec-sub').forEach(function (el, i) {
+      if (el.getBoundingClientRect().top > window.innerHeight) {
+        el.classList.add('reveal');
+        el.style.transitionDelay = (el.classList.contains('skill') ? (i % 3) * 80 : 0) + 'ms';
+        io.observe(el);
+      }
+    });
+  }
+
+  /* Count-up stats */
+  if (!reduce) document.querySelectorAll('[data-count]').forEach(function (el) {
+    var target = +el.getAttribute('data-count'), t0 = null;
+    el.textContent = '0';
+    function step(t) {
+      if (!t0) t0 = t;
+      var p = Math.min((t - t0) / 1200, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  });
+
+  /* Scroll progress + active nav link */
+  var bar = document.getElementById('progress');
+  var links = Array.prototype.slice.call(document.querySelectorAll('.links a'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function onScroll() {
+    var h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = 'scaleX(' + (h > 0 ? scrollY / h : 0) + ')';
+    var idx = -1;
+    secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < innerHeight * 0.4) idx = i; });
+    links.forEach(function (a, i) { a.classList.toggle('active', i === idx); });
+  }
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  /* Copy buttons */
+  document.querySelectorAll('.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.getAttribute('data-copy');
+      var reset = function () { setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+      var fallback = function () {
+        var el = btn.parentElement.querySelector('a, .val');
+        var r = document.createRange(); r.selectNodeContents(el);
+        var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = 'Selected'; reset();
+      };
+      try { navigator.clipboard.writeText(text).then(function () { btn.textContent = 'Copied'; reset(); }, fallback); }
+      catch (e) { fallback(); }
+    });
+  });
+
+  /* Background: drifting cluster-network graphic */
+  var cv = document.getElementById('net'), ctx = cv.getContext('2d');
+  var W, H, dpr, nodes = [], mouse = { x: -9999, y: -9999 }, color = '140,180,255';
+  function readColor() { color = getComputedStyle(document.documentElement).getPropertyValue('--net').trim() || color; }
+  function resize() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = innerWidth; H = innerHeight;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var count = Math.round(Math.min(70, Math.max(28, W * H / 22000)));
+    nodes = [];
+    for (var i = 0; i < count; i++) nodes.push({
+      x: Math.random() * W, y: Math.random() * H,
+      vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25,
+      r: Math.random() < .12 ? 2.6 : 1.4
+    });
+  }
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    var link = 140;
+    for (var i = 0; i < nodes.length; i++) {
+      var a = nodes[i];
+      if (!reduce) {
+        a.x += a.vx; a.y += a.vy;
+        if (a.x < -20) a.x = W + 20; if (a.x > W + 20) a.x = -20;
+        if (a.y < -20) a.y = H + 20; if (a.y > H + 20) a.y = -20;
+        var dx = a.x - mouse.x, dy = a.y - mouse.y, d2 = dx * dx + dy * dy;
+        if (d2 < 16000) { a.x += dx * .006; a.y += dy * .006; }
+      }
+      for (var j = i + 1; j < nodes.length; j++) {
+        var b = nodes[j], ex = a.x - b.x, ey = a.y - b.y, d = Math.sqrt(ex * ex + ey * ey);
+        if (d < link) {
+          ctx.strokeStyle = 'rgba(' + color + ',' + (0.22 * (1 - d / link)).toFixed(3) + ')';
+          ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+        }
+      }
+      ctx.fillStyle = 'rgba(' + color + ',' + (a.r > 2 ? .75 : .45) + ')';
+      ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill();
+    }
+    if (!reduce && !document.hidden) requestAnimationFrame(draw);
+  }
+  readColor(); resize(); draw();
+  addEventListener('resize', function () { resize(); if (reduce) draw(); });
+  addEventListener('pointermove', function (e) { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
+  document.addEventListener('visibilitychange', function () { if (!document.hidden && !reduce) requestAnimationFrame(draw); });
+  matchMedia('(prefers-color-scheme: light)').addEventListener('change', function () { readColor(); if (reduce) draw(); });
+})();
+</script>
+</body>
+</html>
