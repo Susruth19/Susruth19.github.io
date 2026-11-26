@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Chinni Hemani's 20-week study roadmap: Linux, networking, Azure, Azure DevOps, AKS and Terraform, with labs and study references.">
+<meta name="theme-color" content="#123A31">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23123A31'/%3E%3Ctext x='32' y='41' font-family='Arial' font-size='24' font-weight='700' fill='%23F4B740' text-anchor='middle'%3ECH%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Chinni's Study Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<style>
+/* VOICE everyday: a study plan Chinni will tick through for 20 weeks
+   IDEA an Azure Pipelines run: each phase is a stage, each lab a job that turns green
+   PICTURE the 20-week stage band at true time scale, filling as labs are ticked
+   COLOUR pine band and amber accent from Chinni's site; one hue per stage
+   TYPE Manrope 800 + Nunito Sans
+   LAYOUT pine band with title and stage band full width; stages below as text + checklist columns; phone stacks */
+:root{color-scheme:light dark;
+--bg:light-dark(#FFFFFF,#0F1614);--ink:light-dark(#15211D,#E6EDE9);--muted:light-dark(#5B6964,#9AABA4);
+--line:light-dark(#E2E7E3,#24322D);--panel:light-dark(#F5F7F4,#16201D);
+--pine:light-dark(#123A31,#0A231D);--pine-ink:#EAF3EF;--pine-muted:#A9C6BB;--amber:#F4B740;--amber-ink:light-dark(#9A6406,#F4B740);
+--ok:light-dark(#23935A,#4CC27B);
+--s1:light-dark(#2E8B57,#4CC27B);--s2:light-dark(#1F6FE5,#5B9BFF);--s3:light-dark(#6B4FD8,#9C86FF);--s4:light-dark(#0D8F9C,#2EC4CF);--s5:light-dark(#D2741E,#F0A257)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.6 "Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Manrope,"Segoe UI",system-ui,sans-serif;margin:0;letter-spacing:-.02em;line-height:1.1;text-wrap:balance}
+a{color:var(--amber-ink)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.band{padding-block:clamp(28px,4vw,56px);padding-left:max(5vw,16px,env(safe-area-inset-left,0px));padding-right:max(5vw,16px,env(safe-area-inset-right,0px))}
+.in{max-width:1240px;margin:0 auto}
+.top{background:var(--pine);color:var(--pine-ink);margin-top:calc(-1*env(safe-area-inset-top,0px));padding-top:calc(env(safe-area-inset-top,0px) + clamp(28px,4vw,48px))}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.head h1{font-size:clamp(32px,4.6vw,50px);font-weight:800}
+.head p{margin:10px 0 0;color:var(--pine-muted);max-width:60ch}
+.overall{text-align:right}
+.overall b{display:block;font-family:Manrope,sans-serif;font-size:clamp(36px,5vw,56px);font-weight:800;line-height:1;color:var(--amber);font-variant-numeric:tabular-nums}
+.overall span{color:var(--pine-muted);font-size:14px}
+.run{margin-top:32px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px 18px 14px}
+.stages{display:flex;gap:4px}
+.stg{position:relative;height:64px;border-radius:10px;background:rgba(255,255,255,.08);overflow:hidden;text-decoration:none;color:var(--pine-ink)}
+.stg i{position:absolute;inset:0 auto 0 0;background:var(--c);transition:width .6s cubic-bezier(.2,.7,.2,1)}
+.stg span{position:relative;display:block;padding:9px 11px;font-weight:700;font-size:14px;line-height:1.2}
+.stg span small{display:block;font-weight:600;opacity:.85;font-size:12.5px}
+.weeks{display:grid;grid-template-columns:repeat(20,minmax(0,1fr));margin-top:8px;font-size:12px;color:var(--pine-muted);font-variant-numeric:tabular-nums}
+.weeks span{text-align:center}
+.note{margin:14px 0 0;font-size:13.5px;color:var(--pine-muted)}
+.rhythm{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.rh{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.rh b{display:block;font-family:Manrope,sans-serif;font-size:22px;font-weight:800}
+.rh span{color:var(--muted);font-size:14.5px}
+.phase{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);padding-block:44px;border-top:1px solid var(--line)}
+.ph-k{display:flex;align-items:center;gap:12px;margin-bottom:12px;color:var(--muted);font-weight:700;font-size:14px}
+.ph-k i{width:14px;height:14px;border-radius:4px;background:var(--c)}
+.phase h2{font-size:clamp(26px,3vw,34px);font-weight:800}
+.why{margin:10px 0 18px;color:var(--muted)}
+.topics{display:grid;gap:14px}
+.topic h3{font-size:16px;font-weight:800;margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:13.5px;padding:3px 10px;border-radius:7px;background:var(--panel);border:1px solid var(--line)}
+.refs{margin-top:22px}
+.refs h3{font-size:16px;font-weight:800;margin-bottom:8px}
+.ref{display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px;padding:9px 0;border-top:1px solid var(--line);font-size:15px}
+.ref .ty{font-size:12px;font-weight:700;padding:2px 0;color:var(--c);white-space:nowrap}
+.ref a,.ref strong{font-weight:700;color:var(--ink);text-decoration-color:color-mix(in srgb,var(--c) 60%,transparent);text-underline-offset:3px}
+.ref a:hover{color:var(--c)}
+.ref small{display:block;color:var(--muted);font-size:14px}
+.gen{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;--c:var(--amber-ink)}
+.jobs{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;align-self:start;position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px)}
+.jobs-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+.jobs-h b{font-family:Manrope,sans-serif;font-size:16px}
+.pct{font-size:13.5px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;border-radius:6px;background:var(--line);overflow:hidden;margin-bottom:8px}
+.bar i{display:block;height:100%;background:var(--c);transition:width .5s}
+.job{display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:10px;align-items:start;padding:10px 4px;border-top:1px solid var(--line);cursor:pointer}
+.job:first-of-type{border-top:0}
+.job input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--ok);cursor:pointer}
+.job .wk{font-size:12.5px;color:var(--muted);font-weight:700;white-space:nowrap;padding-top:2px}
+.job.done .t{color:var(--muted);text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--muted) 60%,transparent)}
+.ms{margin-top:12px;padding:12px 14px;border-radius:12px;background:color-mix(in srgb,var(--amber) 16%,transparent);font-size:14.5px}
+.ms b{color:var(--amber-ink)}
+.capstone{background:var(--pine);color:var(--pine-ink)}
+.capstone h2{font-size:clamp(26px,3vw,34px);font-weight:800}
+.capstone p{color:var(--pine-muted);max-width:64ch}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:22px}
+.flow span{padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);font-weight:700;font-size:14.5px}
+.flow em{font-style:normal;color:var(--amber);font-weight:800}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:13.5px;color:var(--muted)}
+td.n{white-space:nowrap;font-weight:700}
+.tag{font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;white-space:nowrap}
+.tag.req{background:color-mix(in srgb,var(--ok) 16%,transparent);color:var(--ok)}
+.tag.opt{background:var(--panel);color:var(--muted);border:1px solid var(--line)}
+.sec-h{font-size:clamp(24px,2.8vw,30px);font-weight:800;margin-bottom:16px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+.reset{font:700 14px "Nunito Sans",sans-serif;background:none;border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:9px 14px;cursor:pointer}
+.reset.arm{border-color:#C8371E;color:#C8371E}
+@media(max-width:900px){.jobs{position:static}.phase{grid-template-columns:minmax(0,1fr)}.gen{grid-template-columns:minmax(0,1fr)}.rhythm{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.stg span small{display:none}.stg span{font-size:12.5px;padding:8px 7px}.weeks span:nth-child(even){visibility:hidden}.overall{text-align:left}}
+@media(max-width:600px){table{font-size:13.5px}th,td{padding:8px 6px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="band top">
+  <div class="in">
+    <div class="head">
+      <div>
+        <h1>Chinni's 20-week study roadmap</h1>
+        <p>From Azure DevOps to a full Azure platform engineer: Linux, networking, Azure, AKS and infrastructure as code, with hands-on labs and study references for every stage.</p>
+      </div>
+      <div class="overall"><b id="allPct">0%</b><span id="allCount">0 of 0 labs done</span></div>
+    </div>
+
+    <div class="run" aria-label="Roadmap stages on a 20-week scale">
+      <div class="stages" id="stages"></div>
+      <div class="weeks" id="weeks"></div>
+    </div>
+    <p class="note">Tick labs below as you finish them; each stage fills in. Progress is saved in this browser only.</p>
+  </div>
+</header>
+
+<section class="band">
+  <div class="in">
+    <h2 class="sec-h">Weekly rhythm, about 11 hours</h2>
+    <div class="rhythm">
+      <div class="rh"><b>Mon–Fri · 1.5 h</b><span>45 min concepts (Microsoft Learn, docs), 45 min hands-on lab</span></div>
+      <div class="rh"><b>Saturday · 3 h</b><span>The week's big lab, built end to end</span></div>
+      <div class="rh"><b>Sunday · 1 h</b><span>Revise notes, practice questions, plan next week</span></div>
+      <div class="rh"><b>Cost control</b><span>Use a free or pay-as-you-go subscription with a budget alert, and delete resources after each lab</span></div>
+    </div>
+  </div>
+</section>
+
+<main class="band" style="padding-block:0" id="phases"><div class="in" id="phaseList"></div></main>
+
+<section class="band capstone" id="capstone">
+  <div class="in">
+    <h2>Capstone: one project that proves everything</h2>
+    <p>Build it in weeks 19–20, put the code on GitHub with a clear README and diagram, and add it to Chinni's portfolio page. It is the best answer to "tell me about your AKS experience" in an interview.</p>
+    <div class="flow">
+      <span>Terraform: RG, VNet, ACR, AKS, Key Vault</span><em>→</em>
+      <span>Azure Pipeline: build, test, scan image</span><em>→</em>
+      <span>Push to ACR</span><em>→</em>
+      <span>Helm deploy to AKS dev</span><em>→</em>
+      <span>Approval gate</span><em>→</em>
+      <span>AKS prod</span><em>→</em>
+      <span>Secrets via Key Vault CSI</span><em>→</em>
+      <span>Dashboards in Grafana / Azure Monitor</span>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="in">
+    <h2 class="sec-h">Useful throughout</h2>
+    <div class="gen" id="gen"></div>
+  </div>
+</section>
+
+<footer class="band foot">
+  <span>Built from <a href="../">Chinni Hemani's profile</a>: Azure DevOps, AKS, Azure services, networking and Linux.</span>
+  <button class="reset" id="reset" type="button">Reset progress</button>
+</footer>
+
+<script>
+{
+const P=[
+ {id:'s1',name:'Linux & networking',short:'Linux & Net',weeks:[1,3],why:'The base under every pipeline agent, VM and AKS node. Fluent shell and networking skills make troubleshooting fast.',
+  topics:[['Linux',['Filesystem & permissions','Users, groups, sudo','Processes & signals','systemd & journalctl','apt / yum','Bash scripting','grep, sed, awk','cron','SSH keys']],
+          ['Networking',['OSI & TCP/IP','IP addressing & CIDR','Subnetting','DNS resolution','HTTP, HTTPS, TLS','L4 vs L7 load balancing','NAT','ping, dig, curl, ss, tcpdump']]],
+  res:[['Docs','Linux Journey','https://linuxjourney.com/','Free, beginner-friendly lessons from shell basics to networking'],
+        ['Book','The Linux Command Line (William Shotts)','https://linuxcommand.org/tlcl.php','Free PDF; the best start-to-finish shell book'],
+        ['Docs','GNU Bash manual','https://www.gnu.org/software/bash/manual/','Reference for scripting syntax'],
+        ['Practice','OverTheWire: Bandit','https://overthewire.org/wargames/bandit/','Game-style levels that drill Linux commands'],
+        ['Tool','explainshell','https://explainshell.com/','Paste any command to see what each part does'],
+        ['Docs','Cloudflare Learning Center','https://www.cloudflare.com/learning/','Clear explainers on DNS, TLS, HTTP and load balancing'],
+        ['Course','Practical Networking: subnetting series','https://www.practicalnetworking.net/','Step-by-step subnetting lessons'],
+        ['Book','Computer Networking: A Top-Down Approach (Kurose & Ross)','','Classic textbook for deeper networking theory'],
+        ['YouTube','NetworkChuck','https://www.youtube.com/@NetworkChuck','Lively Linux and networking videos'],
+        ['YouTube','Learn Linux TV','https://www.youtube.com/@LearnLinuxTV','Linux crash courses and command tutorials'],
+        ['YouTube','PowerCert Animated Videos','https://www.youtube.com/@PowerCertAnimatedVideos','Animated explainers on DNS, IP addressing and subnetting'],
+        ['YouTube','Search: freeCodeCamp Linux full course','https://www.youtube.com/results?search_query=freeCodeCamp+Linux+full+course+for+beginners','Free multi-hour Linux course']],
+  jobs:[[1,'Navigate, manage files and fix permissions on an Ubuntu VM daily'],[1,'Write a bash script that checks disk usage and logs a warning, scheduled with cron'],[2,'Create and run a custom systemd service; read its logs with journalctl'],[2,'Subnet 10.0.0.0/16 into /24s by hand and check with a calculator'],[3,'Trace a DNS lookup with dig and inspect an HTTPS request with curl -v'],[3,'Install nginx, block port 80, then find and fix it with ss and logs']],
+  ms:'Comfortable in a Linux terminal every day, and can subnet a VNet without a calculator.'},
+ {id:'s2',name:'Azure core services',short:'Azure core',weeks:[4,7],why:'AKS and pipelines sit on Azure identity, networking and storage. Learn them hands-on in the portal and with the Azure CLI.',
+  topics:[['Identity & governance',['Entra ID users & groups','RBAC','Management groups & subscriptions','Azure Policy','Tags & cost management']],
+          ['Compute & storage',['Virtual Machines','Availability zones','VM Scale Sets','App Service','Storage accounts','Blob, Files, SAS','LRS / ZRS / GRS']],
+          ['Networking & ops',['VNets & subnets','NSGs & ASGs','VNet peering','Private endpoints','Azure DNS','Load Balancer vs App Gateway','Key Vault','Azure Monitor & KQL','Azure CLI']]],
+  res:[['Course','Microsoft Learn: Azure Administrator training','https://learn.microsoft.com/training/browse/?products=azure&roles=administrator','Free modules with sandbox labs'],
+        ['Docs','Azure documentation','https://learn.microsoft.com/azure/','Official docs for every service'],
+        ['Docs','Azure Architecture Center','https://learn.microsoft.com/azure/architecture/','Reference designs such as hub-and-spoke networks'],
+        ['Docs','Azure CLI reference','https://learn.microsoft.com/cli/azure/','Every az command with examples'],
+        ['Docs','KQL quick reference','https://learn.microsoft.com/kusto/query/kql-quick-reference','Query language for Log Analytics'],
+        ['YouTube','John Savill\u2019s Technical Training','https://www.youtube.com/@NTFAQGuy','Deep, clear Azure walkthroughs and whiteboards'],
+        ['YouTube','Adam Marczak: Azure for Everyone','https://www.youtube.com/@AdamMarczakYT','Short, clear tutorials on individual Azure services'],
+        ['YouTube','Search: John Savill Azure Master Class','https://www.youtube.com/results?search_query=John+Savill+Azure+Master+Class','Full Azure course, one module per topic'],
+        ['YouTube','Search: Azure hub and spoke network tutorial','https://www.youtube.com/results?search_query=Azure+hub+and+spoke+VNet+peering+tutorial','Walkthroughs for the week 5 lab']],
+  jobs:[[4,'Create users, groups and custom RBAC roles; assign an Azure Policy'],[5,'Build a hub-and-spoke network with peering and NSG rules'],[5,'Put two VMs behind a Standard Load Balancer and test failover'],[6,'Create a storage account with SAS access and a lifecycle rule'],[6,'Store secrets in Key Vault and read them with a managed identity'],[7,'Write five KQL queries in Log Analytics and set an alert'],[7,'Rebuild the week 5 network with the Azure CLI only, as a script']],
+  ms:'Can design, build and secure a small Azure environment from scratch.'},
+ {id:'s3',name:'Advanced Azure DevOps',short:'Azure DevOps',weeks:[8,10],why:'Chinni’s strongest area. Go deeper on templates, secure deployments and release strategies.',
+  topics:[['Pipelines',['YAML templates & extends','Multi-stage pipelines','Environments & checks','Deployment jobs','Blue-green & canary','Semantic versioning']],
+          ['Security & quality',['Workload identity federation','Secrets from Key Vault','SonarQube / SonarCloud','Dependency scanning','Branch policies']],
+          ['Beyond Azure DevOps',['GitHub Actions basics','Trunk-based vs GitFlow','DORA metrics']]],
+  res:[['Docs','Azure Pipelines documentation','https://learn.microsoft.com/azure/devops/pipelines/','Pipelines, environments, checks and agents'],
+        ['Docs','YAML schema reference','https://learn.microsoft.com/azure/devops/pipelines/yaml-schema/','Every keyword, including templates and extends'],
+        ['Practice','Azure DevOps Labs','https://azuredevopslabs.com/','Guided hands-on labs for each Azure DevOps service'],
+        ['Course','Microsoft Learn: DevOps Engineer training','https://learn.microsoft.com/training/browse/?roles=devops-engineer','Free modules on release strategies and DevSecOps'],
+        ['Docs','GitHub Actions documentation','https://docs.github.com/actions','For comparing with Azure Pipelines'],
+        ['Book','Accelerate (Forsgren, Humble, Kim)','','The research behind DORA metrics'],
+        ['Book','The DevOps Handbook (Kim, Humble, Debois, Willis)','','Practices for flow, feedback and learning'],
+        ['YouTube','Abhishek Veeramalla','https://www.youtube.com/@AbhishekVeeramalla','DevOps and Azure DevOps series, popular in India'],
+        ['YouTube','Search: Adam Marczak Azure DevOps pipelines','https://www.youtube.com/results?search_query=Adam+Marczak+Azure+DevOps+pipelines','Pipelines explained step by step'],
+        ['YouTube','Search: Azure Pipelines YAML templates','https://www.youtube.com/results?search_query=Azure+Pipelines+YAML+templates+extends+tutorial','Reusable template patterns']],
+  jobs:[[8,'Build a reusable YAML template library used by two pipelines'],[8,'Switch a service connection to workload identity federation'],[9,'Deploy to App Service with staging slots and a blue-green swap'],[9,'Add SonarCloud quality gates and dependency scanning to CI'],[10,'Recreate one pipeline in GitHub Actions to compare'],[10,'Add a canary release with an environment check and automatic rollback']],
+  ms:'Can design secure, reusable multi-stage pipelines with safe release strategies.'},
+ {id:'s4',name:'Containers & AKS',short:'AKS',weeks:[11,15],why:'The biggest step up. Learn Kubernetes properly first, then the AKS-specific features used in production.',
+  topics:[['Docker',['Dockerfile best practices','Multi-stage builds','Image layers & tags','ACR']],
+          ['Kubernetes',['Pods & Deployments','Services & Ingress','ConfigMaps & Secrets','Namespaces','Probes','Requests & limits','HPA','PV, PVC, StorageClass','RBAC','kubectl troubleshooting']],
+          ['AKS',['Node pools','Azure CNI / Overlay','ACR integration','Workload Identity','Key Vault CSI driver','Ingress controllers','Cluster upgrades','Container Insights','Helm charts']]],
+  res:[['Docs','Docker: Get started','https://docs.docker.com/get-started/','Images, containers and Dockerfiles'],
+        ['Docs','Kubernetes tutorials','https://kubernetes.io/docs/tutorials/','Official hands-on tutorials'],
+        ['Docs','AKS documentation','https://learn.microsoft.com/azure/aks/','Node pools, networking, identity and upgrades'],
+        ['Docs','AKS baseline architecture','https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks','How production AKS clusters are designed'],
+        ['Docs','Helm documentation','https://helm.sh/docs/','Charts, values and templating'],
+        ['Practice','Killercoda','https://killercoda.com/','Free Kubernetes scenarios in the browser'],
+        ['Practice','Kubernetes the Hard Way','https://github.com/kelseyhightower/kubernetes-the-hard-way','Build a cluster by hand to understand every part'],
+        ['YouTube','TechWorld with Nana','https://www.youtube.com/@TechWorldwithNana','Beginner-friendly Docker and Kubernetes courses'],
+        ['Book','Kubernetes: Up and Running (Burns, Beda, Hightower, Evenson)','','Solid foundation in Kubernetes concepts'],
+        ['YouTube','Houssem Dellai','https://www.youtube.com/@HoussemDellai','Hands-on AKS deep dives: networking, identity, Key Vault CSI'],
+        ['YouTube','KodeKloud','https://www.youtube.com/@KodeKloud','Kubernetes and Docker lessons with labs'],
+        ['YouTube','CNCF','https://www.youtube.com/@cncf','KubeCon talks on real-world Kubernetes'],
+        ['YouTube','Search: TechWorld with Nana Kubernetes tutorial','https://www.youtube.com/results?search_query=TechWorld+with+Nana+Kubernetes+tutorial+for+beginners','Popular full Kubernetes course']],
+  jobs:[[11,'Containerise a sample app with a multi-stage Dockerfile'],[11,'Run it on a local kind or minikube cluster'],[12,'Write Deployments, Services, ConfigMaps and probes by hand'],[13,'Create an AKS cluster with ACR attached and two node pools'],[13,'Package the app as a Helm chart and deploy it from Azure Pipelines'],[14,'Add an HPA and load test it; watch pods scale'],[14,'Mount Key Vault secrets with the CSI driver and Workload Identity'],[15,'Upgrade the cluster version and troubleshoot a broken pod']],
+  ms:'Can deploy, scale, secure and troubleshoot an app on AKS end to end.'},
+ {id:'s5',name:'IaC, GitOps & capstone',short:'IaC & capstone',weeks:[16,20],why:'Automate the whole platform, add GitOps and monitoring, then prove it all in one capstone project.',
+  topics:[['Terraform',['Providers & resources','State & remote backend','Modules','Workspaces','Plan / apply in pipelines','Bicep basics']],
+          ['GitOps & monitoring',['Flux on AKS','Argo CD basics','Managed Prometheus','Grafana dashboards','Alerts']],
+          ['Security',['Defender for Cloud','Image scanning','Network policies']]],
+  res:[['Docs','Terraform: Get started on Azure','https://developer.hashicorp.com/terraform/tutorials/azure-get-started','Official step-by-step tutorials'],
+        ['Docs','AzureRM provider docs','https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs','Every Azure resource in Terraform'],
+        ['Docs','Bicep documentation','https://learn.microsoft.com/azure/azure-resource-manager/bicep/','Azure\u2019s own IaC language, for comparison'],
+        ['Docs','Flux documentation','https://fluxcd.io/flux/','GitOps concepts and setup'],
+        ['Docs','Prometheus overview','https://prometheus.io/docs/introduction/overview/','Metrics, exporters and alerting'],
+        ['Docs','Grafana tutorials','https://grafana.com/tutorials/','Building dashboards'],
+        ['Book','Terraform: Up & Running (Yevgeniy Brikman)','','Practical guide to modules, state and teamwork'],
+        ['YouTube','Search: TechWorld with Nana Terraform','https://www.youtube.com/results?search_query=TechWorld+with+Nana+Terraform+tutorial','Terraform explained from scratch'],
+        ['YouTube','HashiCorp','https://www.youtube.com/@HashiCorp','Official Terraform talks and demos'],
+        ['YouTube','Search: freeCodeCamp Terraform course','https://www.youtube.com/results?search_query=freeCodeCamp+Terraform+course','Free full-length Terraform course'],
+        ['YouTube','Search: Flux GitOps on AKS','https://www.youtube.com/results?search_query=Flux+GitOps+AKS+tutorial','Setting up GitOps on AKS']],
+  jobs:[[16,'Write Terraform for an RG, VNet and storage with remote state in Azure Storage'],[17,'Turn it into reusable modules and run plan/apply from a pipeline'],[17,'Provision AKS, ACR and Key Vault with Terraform'],[18,'Set up Flux on AKS to sync manifests from a Git repo'],[18,'Add Prometheus metrics and a Grafana dashboard with one alert'],[19,'Build the capstone pipeline from commit to AKS prod'],[20,'Write the README and diagram; add the project to the portfolio']],
+  ms:'Whole platform defined in code; capstone on GitHub and on the portfolio.'}
+];
+const KEY='chinni-roadmap-v1';
+let done={};
+try{done=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){done={}}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(done))}catch(e){}};
+const refRow=r=>'<div class="ref"><span class="ty">'+esc(r[0])+'</span><div>'+(r[2]?'<a href="'+r[2]+'">'+esc(r[1])+'</a>':'<strong>'+esc(r[1])+'</strong>')+'<small>'+esc(r[3])+'</small></div></div>';
+const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+document.getElementById('weeks').innerHTML=Array.from({length:20},(_,i)=>'<span>'+(i+1)+'</span>').join('');
+document.getElementById('stages').innerHTML=P.map(p=>{const n=p.weeks[1]-p.weeks[0]+1;return '<a class="stg" href="#'+p.id+'" style="flex:'+n+';--c:var(--'+p.id+')"><i id="f-'+p.id+'" style="width:0"></i><span>'+esc(p.short)+'<small>Wk '+p.weeks[0]+'–'+p.weeks[1]+'</small></span></a>'}).join('');
+
+document.getElementById('phaseList').innerHTML=P.map((p,pi)=>
+ '<section class="phase" id="'+p.id+'" style="--c:var(--'+p.id+')"><div>'+
+ '<div class="ph-k"><i></i>Stage '+(pi+1)+' · Weeks '+p.weeks[0]+'–'+p.weeks[1]+'</div>'+
+ '<h2>'+esc(p.name)+'</h2><p class="why">'+esc(p.why)+'</p>'+
+ '<div class="topics">'+p.topics.map(t=>'<div class="topic"><h3>'+esc(t[0])+'</h3><div class="chips">'+t[1].map(c=>'<span>'+esc(c)+'</span>').join('')+'</div></div>').join('')+'</div>'+
+ '<div class="refs"><h3>Study references</h3>'+p.res.map(refRow).join('')+'</div></div>'+
+ '<div class="jobs"><div class="jobs-h"><b>Hands-on labs</b><span class="pct" id="p-'+p.id+'"></span></div><div class="bar"><i id="b-'+p.id+'" style="width:0"></i></div>'+
+ p.jobs.map((j,ji)=>{const k=p.id+'-'+ji;return '<label class="job" for="'+k+'"><input type="checkbox" id="'+k+'" data-k="'+k+'"'+(done[k]?' checked':'')+'><span class="t">'+esc(j[1])+'</span><span class="wk">Wk '+j[0]+'</span></label>'}).join('')+
+ '<div class="ms"><b>Milestone:</b> '+esc(p.ms)+'</div></div></section>').join('');
+
+function update(){
+ let all=0,tot=0;
+ P.forEach(p=>{
+  const n=p.jobs.length,c=p.jobs.filter((_,i)=>done[p.id+'-'+i]).length;all+=c;tot+=n;
+  const pct=Math.round(c/n*100);
+  document.getElementById('f-'+p.id).style.width=pct+'%';
+  document.getElementById('b-'+p.id).style.width=pct+'%';
+  document.getElementById('p-'+p.id).textContent=c+' / '+n+' done';
+ });
+ document.querySelectorAll('.job').forEach(l=>l.classList.toggle('done',l.querySelector('input').checked));
+ document.getElementById('allPct').textContent=Math.round(all/tot*100)+'%';
+ document.getElementById('allCount').textContent=all+' of '+tot+' labs done';
+}
+document.getElementById('phaseList').addEventListener('change',e=>{const k=e.target.dataset.k;if(!k)return;if(e.target.checked)done[k]=1;else delete done[k];save();update()});
+const rb=document.getElementById('reset');let armT=null;
+rb.addEventListener('click',()=>{
+ if(!rb.classList.contains('arm')){rb.classList.add('arm');rb.textContent='Click again to clear all ticks';armT=setTimeout(()=>{rb.classList.remove('arm');rb.textContent='Reset progress'},4000);return}
+ clearTimeout(armT);done={};save();document.querySelectorAll('.job input').forEach(i=>i.checked=false);rb.classList.remove('arm');rb.textContent='Progress cleared';setTimeout(()=>rb.textContent='Reset progress',1800);update();
+});
+const GEN=[['Plan','roadmap.sh: DevOps roadmap','https://roadmap.sh/devops','Community map of DevOps skills to check progress against'],
+ ['Lab','Azure free account','https://azure.microsoft.com/free/','Free credit and always-free services for labs; set a budget alert'],
+ ['Lab','Microsoft Learn sandboxes','https://learn.microsoft.com/training/','Many modules include a free temporary Azure subscription'],
+ ['Docs','Azure updates','https://azure.microsoft.com/updates/','Stay current on new and retiring Azure features'],
+ ['YouTube','Microsoft Azure','https://www.youtube.com/@MicrosoftAzure','Official demos and conference sessions'],
+ ['YouTube','freeCodeCamp','https://www.youtube.com/@freecodecamp','Free full-length courses on Linux, Azure, Kubernetes and Terraform'],
+ ['Docs','Microsoft Cloud Adoption Framework','https://learn.microsoft.com/azure/cloud-adoption-framework/','How organisations plan and govern Azure at scale']];
+document.getElementById('gen').innerHTML=GEN.map(refRow).join('');
+update();
+}
+</script>
+
+</body>
+</html>
